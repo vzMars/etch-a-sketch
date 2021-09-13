@@ -8,7 +8,17 @@ function makeGrid(cols, rows) {
     let newDiv = document.createElement('div');
     newDiv.className = 'grid-item';
     container.appendChild(newDiv);
+    newDiv.addEventListener('mouseenter', colorGrid);
   }
 }
 
 makeGrid(16, 16);
+
+function colorGrid(e) {
+  e.target.style.backgroundColor = `rgb(${randomColor()},${randomColor()},${randomColor()})`;
+}
+
+function randomColor() {
+  let color = Math.floor(Math.random() * 255) + 1;
+  return color;
+}
