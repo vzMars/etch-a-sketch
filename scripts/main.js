@@ -1,15 +1,16 @@
 const container = document.querySelector('#grid-container');
 const colorChooser = document.querySelector('#colorChooser');
 const colorChoices = document.querySelectorAll('.color-choice');
-const clearBtn = document.querySelector('clearBtn');
-
-makeGrid(16, 16);
+const clearBtn = document.querySelector('#clearBtn');
+const gridSize = document.querySelector('#grid-size');
+const output = document.querySelector('#demo');
 
 colorChoices.forEach((colorChoice) =>
   colorChoice.addEventListener('click', activateColorChoice)
 );
 
 clearBtn.addEventListener('click', clearGrid);
+gridSize.addEventListener('change', changeGridSize);
 
 function makeGrid(cols, rows) {
   let gridSize = cols * rows;
@@ -21,6 +22,11 @@ function makeGrid(cols, rows) {
     container.appendChild(newDiv);
     newDiv.addEventListener('mouseenter', colorGrid);
   }
+}
+
+function changeGridSize() {
+  output.innerText = `${gridSize.value} x ${gridSize.value}`;
+  clearGrid();
 }
 
 function activateColorChoice(e) {
@@ -88,4 +94,11 @@ function eraser() {
   return color;
 }
 
-function clearGrid() {}
+function clearGrid() {
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+  makeGrid(gridSize.value, gridSize.value);
+}
+
+changeGridSize();
