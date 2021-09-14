@@ -3,7 +3,7 @@ const colorChooser = document.querySelector('#colorChooser');
 const colorChoices = document.querySelectorAll('.color-choice');
 const clearBtn = document.querySelector('#clearBtn');
 const gridSize = document.querySelector('#grid-size');
-const output = document.querySelector('#demo');
+const output = document.querySelector('#slide-value');
 
 colorChoices.forEach((colorChoice) =>
   colorChoice.addEventListener('click', activateColorChoice)

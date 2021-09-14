@@ -8,18 +8,40 @@
     <script src="scripts/main.js" defer></script>
   </head>
   <body>
+    <div id="grid-header">Ethch A Sketch</div>
     <div id="grid-container"></div>
-    <div id="buttons">
-      <div id="colorContainer">
-        <input type="color" id="colorChooser" value="#13e0e0" />
+    <div id="grid-controls">
+      <div id="buttons">
+        <span class="dot"></span>
+        <div id="center-section">
+          <div id="color-section">
+            <div id="colorContainer">
+              <input type="color" id="colorChooser" value="#13e0e0" />
+            </div>
+            <button class="color-choice activeColor" id="colorBtn">
+              Custom
+            </button>
+            <button class="color-choice" id="blackBtn">Black</button>
+            <button class="color-choice" id="rainbowBtn">Rainbow</button>
+            <button class="color-choice" id="eraserBtn">Eraser</button>
+            <button class="settings" id="clearBtn">Clear</button>
+          </div>
+          <div id="slider-section">
+            <p>Value: <span id="slide-value"></span></p>
+            <input type="range" id="grid-size" min="1" max="100" value="16" />
+          </div>
+        </div>
+        <span class="dot"></span>
       </div>
-      <button class="color-choice activeColor" id="colorBtn">Color</button>
-      <button class="color-choice" id="blackBtn">Black</button>
-      <button class="color-choice" id="rainbowBtn">Rainbow</button>
-      <button class="color-choice" id="eraserBtn">Eraser</button>
-      <button class="settings" id="clearBtn">Clear</button>
-      <input type="range" id="grid-size" min="1" max="100" value="16" />
-      <p>Value: <span id="demo"></span></p>
     </div>
+    <footer id="footer">
+      <a href="https://github.com/vzMars"
+        ><img
+          src="images/GitHub-Mark-120px-plus.png"
+          id="logo"
+          alt="github-logo"
+      /></a>
+      <p>Created by <a href="https://github.com/vzMars">Marcos Gonzalez.</a></p>
+    </footer>
   </body>
 </html>
