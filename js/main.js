@@ -30,20 +30,8 @@ function changeGridSize() {
 }
 
 function activateColorChoice(e) {
-  let colorChoice = e.target.id;
-  if (colorChoice === 'colorBtn') {
-    deactivateColorChoice();
-    e.target.classList.add('activeColor');
-  } else if (colorChoice === 'blackBtn') {
-    deactivateColorChoice();
-    e.target.classList.add('activeColor');
-  } else if (colorChoice === 'rainbowBtn') {
-    deactivateColorChoice();
-    e.target.classList.add('activeColor');
-  } else {
-    deactivateColorChoice();
-    e.target.classList.add('activeColor');
-  }
+  deactivateColorChoice();
+  e.target.classList.add('activeColor');
 }
 
 function deactivateColorChoice() {
@@ -63,35 +51,36 @@ function getActiveColorChoice() {
 
 function colorGrid(e) {
   let colorChoice = getActiveColorChoice();
-  if (colorChoice === 'colorBtn') {
-    e.target.style.backgroundColor = customColor();
-  } else if (colorChoice === 'blackBtn') {
-    e.target.style.backgroundColor = blackColor();
-  } else if (colorChoice === 'rainbowBtn') {
-    e.target.style.backgroundColor = `rgb(${randomColor()},${randomColor()},${randomColor()})`;
-  } else {
-    e.target.style.backgroundColor = eraser();
+  switch (colorChoice) {
+    case 'colorBtn':
+      e.target.style.backgroundColor = customColor();
+      break;
+    case 'blackBtn':
+      e.target.style.backgroundColor = blackColor();
+      break;
+    case 'rainbowBtn':
+      e.target.style.backgroundColor = `rgb(${randomColor()},${randomColor()},${randomColor()})`;
+      break;
+    default:
+      e.target.style.backgroundColor = eraser();
+      break;
   }
 }
 
 function customColor() {
-  let color = colorChooser.value;
-  return color;
+  return colorChooser.value;
 }
 
 function blackColor() {
-  let color = 'rgb(0,0,0)';
-  return color;
+  return 'rgb(0,0,0)';
 }
 
 function randomColor() {
-  let color = Math.floor(Math.random() * 255) + 1;
-  return color;
+  return Math.floor(Math.random() * 255) + 1;
 }
 
 function eraser() {
-  let color = 'rgb(255,255,255)';
-  return color;
+  return 'rgb(255,255,255)';
 }
 
 function clearGrid() {

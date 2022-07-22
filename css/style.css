@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
 :root {
   --grid-cols: 1;
   --grid-rows: 1;
@@ -6,24 +8,40 @@
   --redBG: rgb(240, 76, 76);
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Italianno', cursive;
-  background-color: rgb(165, 165, 165);
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 
-#grid-header {
-  margin-top: 100px;
-  padding-top: 30px;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  max-width: 128rem;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  background-color: rgb(165, 165, 165);
+  font-size: 2rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0;
+}
+
+header {
   background-color: var(--redBG);
   border: 1px solid var(--redBG);
-  border-radius: 20px 20px 0 0;
-  width: 1000px;
-  height: 100px;
-  font-size: 80px;
+  border-radius: 2rem 2rem 0 0;
+  min-width: 90rem;
+  font-size: 6rem;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -33,20 +51,19 @@ body {
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   background-color: var(--whiteColor);
   border: solid var(--redBG);
-  border-width: 10px 101px 0;
-  width: 800px;
-  height: 500px;
+  border-width: 1rem 10.1rem 0;
+  min-width: 90rem;
+  height: 40rem;
 }
 
-#grid-controls {
+footer {
   background-color: var(--redBG);
   border: 1px solid var(--redBG);
-  border-radius: 0 0 20px 20px;
-  width: 1000px;
-  height: 140px;
+  border-radius: 0 0 2rem 2rem;
+  min-width: 90rem;
 }
 
-#buttons {
+footer section {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -56,36 +73,32 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  padding-top: 2rem;
 }
 
-#color-section {
+.flex-row {
   display: flex;
-  flex-direction: row;
-}
-
-#slider-section {
-  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .dot {
-  height: 80px;
-  width: 80px;
+  height: 8rem;
+  width: 8rem;
   background-color: var(--whiteColor);
   border-radius: 50%;
+  border: 2px solid var(--grayColor);
 }
 
 button {
   background-color: var(--whiteColor);
   color: var(--grayColor);
-  font-size: 15px;
-  font-weight: 600;
-  width: 100px;
-  height: 50px;
+  font-size: 1.8rem;
+  width: 10rem;
+  height: 5rem;
   border: 2px solid var(--grayColor);
-  border-radius: 5px;
+  border-radius: 0.5rem;
   cursor: pointer;
-  margin-right: 5px;
 }
 
 .activeColor {
@@ -93,88 +106,46 @@ button {
   color: var(--whiteColor);
 }
 
-.clearGrid {
-  background-color: var(--whiteColor);
-}
-
 #colorContainer {
   position: relative;
   overflow: hidden;
-  width: 96px;
-  height: 46px;
+  width: 10rem;
+  height: 5rem;
   border: 2px solid var(--grayColor);
-  border-radius: 5px;
-  margin-right: 5px;
+  border-radius: 0.5rem;
 }
 
 #colorChooser {
   position: absolute;
   border: none;
-  width: 116px;
-  height: 116px;
-  top: -10px;
-  right: -10px;
-}
-
-#slider-section {
-  display: flex;
-  align-items: center;
-}
-
-#slider-section p {
-  font-size: 20px;
-  font-weight: 800;
-  margin-right: 10px;
+  width: 11.6rem;
+  height: 11.6rem;
+  top: -1rem;
+  right: -1rem;
 }
 
 #grid-size {
   -webkit-appearance: none;
-  width: 400px;
-  height: 15px;
-  border-radius: 15px;
+  width: 40rem;
+  height: 1.5rem;
+  border-radius: 1.5rem;
   background-color: var(--grayColor);
 }
 
 #grid-size::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   background-color: var(--whiteColor);
   cursor: pointer;
 }
 
 #grid-size::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   background-color: var(--whiteColor);
   cursor: pointer;
-}
-
-#footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 45px;
-}
-
-#footer a {
-  text-decoration: none;
-  color: black;
-}
-
-#logo {
-  width: 40px;
-  height: auto;
-  margin: 5px;
-}
-
-@media (max-width: 1200px) {
-  #grid-header {
-    margin-top: 80px;
-  }
 }
